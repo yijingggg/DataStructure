@@ -1,16 +1,14 @@
-public class MyGeneric <E>{
-
+public class MyGeneric<E>{
     private E e;
 
     public MyGeneric(){
-        //no arg constructor
     }
 
     public MyGeneric(E e){
         this.e = e;
     }
 
-    public void setE(E e) {
+    public void setE(E e){
         this.e = e;
     }
 
@@ -18,11 +16,11 @@ public class MyGeneric <E>{
         return e;
     }
 
-    public static void main(String [] args){
-        MyGeneric <String> strObj = new MyGeneric<>("Hola");
-        MyGeneric <Integer> intObj = new MyGeneric<>(100);
+    public static void main(String []args){
+        MyGeneric<String> strObj = new MyGeneric<>("YiJing");
+        MyGeneric<Integer> intObj = new MyGeneric<>(100);
 
-        System.out.println("String object: "+strObj.getE());
-        System.out.println("Integer object: "+intObj.getE());
+        System.out.println("String value: "+strObj.getE());
+        System.out.println("Integer value: "+intObj.getE());
     }
 }

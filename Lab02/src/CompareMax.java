@@ -1,25 +1,16 @@
 public class CompareMax {
-
-    public static <T extends Comparable> T maximum(T x, T y, T z){
-        T max = x;
-        if(y.compareTo(max)>0){
-            max = y;
+    public static <T extends Comparable> T maximum(T a, T b, T c) {
+        T max = a;
+        if(b.compareTo(a)>0){
+            max = b;
         }
-        if(z.compareTo(max)>0){
-            max = z;
+        if(c.compareTo(a)>0){
+            max = c;
         }
         return max;
     }
 
     public static void main(String[] args) {
-        int maxInt = maximum(3,6,4);
-        System.out.println("Max integer: "+maxInt);
-
-        double maxDouble = maximum(3.5, 7.2, 1.8);
-        System.out.println("Max double: " + maxDouble);
-
-        String maxString = maximum("apple", "banana", "orange");
-        System.out.println("Max string: " + maxString);
+        System.out.println("Maximum value: "+ maximum(6,8,2));
     }
 }
-

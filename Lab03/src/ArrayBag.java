@@ -40,6 +40,7 @@ public class ArrayBag<T> implements BagInterface<T> {
         return result;
     }
 
+    //remove the last element
     public T remove() {
         T result = null;
         if (!isEmpty()) {
@@ -50,6 +51,7 @@ public class ArrayBag<T> implements BagInterface<T> {
         return result;
     }
 
+    //replace the entry with the last element
     public boolean remove(T anEntry) {
         boolean result = false;
         for (int i = 0; i < numberOfEntries; i++) {
@@ -126,7 +128,7 @@ public class ArrayBag<T> implements BagInterface<T> {
 
         for (int i = 0; i < thisBagArr.length; i++) {
             for (int j = 0; j < anotherBagArr.length; j++) {
-                if(thisBagArr[i].equals(anotherBagArr[j])){
+                if (thisBagArr[i].equals(anotherBagArr[j])) {
                     intersectionBag.add(anotherBagArr[j]);
                     anotherBagArr[j] = null;
                     break;
@@ -140,6 +142,7 @@ public class ArrayBag<T> implements BagInterface<T> {
     public BagInterface<T> difference(BagInterface<T> anotherBag) {
         T[] thisBagArr = this.toArray();
         T[] anotherBagArr = anotherBag.toArray();
+
         ArrayBag<T> differenceBag = new ArrayBag<>();
 
         // set duplicate items to null
@@ -158,10 +161,6 @@ public class ArrayBag<T> implements BagInterface<T> {
                 differenceBag.add(thisBagArr[i]);
             }
 
-        }for (int i = 0; i < anotherBagArr.length; i++) {
-            if (anotherBagArr[i] != null) {
-                differenceBag.add(anotherBagArr[i]);
-            }
         }
         return differenceBag;
     }
