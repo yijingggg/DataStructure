@@ -1,29 +1,31 @@
-public class Node<E> {
+/**
+ * this is actually from tutorial 4 Q2
+ */
+public class Node1<E> {
     E element;
-    Node<E> next;
-    Node<E> head = null, tail = null;
+    Node1<E> next;
+    Node1<E> head = null, tail = null;
     int size = 0;
 
-    public Node(E e) {
+    public Node1(E e) {
         this.element = e;
     }
 
     public void addFirst(E element) {
-        Node<E> firstNode = new Node<>(element);
+        Node1<E> firstNode = new Node1<>(element);
         firstNode.next = head;
         head = firstNode;
         size++;
         if (tail == null) {
             tail = head;
         }
-        size++;
     }
 
     public void addLast(E element) {
         if (tail == null) {
-            head = tail = new Node<>(element);
+            head = tail = new Node1<>(element);
         } else {
-            tail.next = new Node<>(element);
+            tail.next = new Node1<>(element);
             tail = tail.next;
         }
         size++;
@@ -35,12 +37,12 @@ public class Node<E> {
         } else if (index >= size) {
             addLast(element);
         } else {
-            Node<E> current = head;
+            Node1<E> current = head;
             for (int i = 1; i < index; i++) {
                 current = current.next;
             }
-            Node<E> temp = current.next;
-            current.next = new Node<>(element);
+            Node1<E> temp = current.next;
+            current.next = new Node1<>(element);
             (current.next).next = temp;
             size++;
 
@@ -51,7 +53,7 @@ public class Node<E> {
         if (size == 0) {
             return null;
         } else {
-            Node<E> temp = head;
+            Node1<E> temp = head;
             head = head.next;
             size--;
             if (head == null) {
@@ -61,22 +63,20 @@ public class Node<E> {
         }
     }
 
-    public E removeLast(){
-        if(size==0){
+    public E removeLast() {
+        if (size == 0) {
             return null;
-        }
-        else if(size==1){
-            Node<E>temp = head;
+        } else if (size == 1) {
+            Node1<E> temp = head;
             head = tail = null;
-            size =0;
+            size = 0;
             return temp.element;
-        }
-        else{
-            Node<E>current = head;
-            for(int i =1; i<size-2;i++){
+        } else {
+            Node1<E> current = head;
+            for (int i = 1; i < size - 2; i++) {
                 current = current.next;
             }
-            Node<E>temp = tail;
+            Node1<E> temp = tail;
             tail = current;
             tail.next = null;
             size--;
@@ -84,22 +84,19 @@ public class Node<E> {
         }
     }
 
-    public E remove(int index){
-        if(index<0 || index>=size){
+    public E remove(int index) {
+        if (index < 0 || index >= size) {
             return null;
-        }
-        else if (index==0){
+        } else if (index == 0) {
             return removeFirst();
-        }
-        else if (index==size-1){
+        } else if (index == size - 1) {
             return removeLast();
-        }
-        else{
-            Node<E>previous = head;
-            for(int i =1;i<index;i++){
+        } else {
+            Node1<E> previous = head;
+            for (int i = 1; i < index; i++) {
                 previous = previous.next;
             }
-            Node<E>current = previous.next;
+            Node1<E> current = previous.next;
             previous.next = current.next;
             size--;
             return current.element;
@@ -107,10 +104,10 @@ public class Node<E> {
     }
 
     public boolean contains(E e) {
-        Node<E> current = head;
+        Node1<E> current = head;
 
         for (int i = 1; i < size; i++) {
-            if (current.element == e) {
+            if (current.element.equals(e)) {
                 System.out.println(current.element + " is found in the linked list");
                 return true;
             }

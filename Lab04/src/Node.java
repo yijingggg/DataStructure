@@ -3,16 +3,13 @@ public class Node<E>{
     private Node<E> next;
 
     public Node(){
-        this(null,null);
+       element = null;
+       next = null;
     }
 
     public Node(E element){
-        this(element, null);
-    }
-
-    public Node(E element, Node<E>next){
         this.element = element;
-        this.next = next;
+        next = null;
     }
 
     public E getElement() {
@@ -30,4 +27,5 @@ public class Node<E>{
     public void setNext(Node<E> next) {
         this.next = next;
     }
+
 }
