@@ -126,6 +126,10 @@ public class MyLinkedList<E> {
         return false;
     }
 
+    /**
+     * @param index to get element
+     * @return element at the specified index, will throw an exception if index is out of bound
+     */
     public E get(int index) {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException();
@@ -165,30 +169,22 @@ public class MyLinkedList<E> {
     }
 
     public int lastIndexOf(E e) {
+        Node<E> current = head;
         int index = -1;
         int i = 0;
-        for (Node<E> current = head; current != null; current = current.next) {
-            if (e.equals(current.element))
+        while (current != null) {
+            if (current.element.equals(e)) {
                 index = i;
+            }
             i++;
+            current = current.next;
         }
         return index;
-
-//        Node<E> current = head;
-//        int index = -1;
-//        int i = 0;
-//        while (current != null) {
-//            if (current.element.equals(e)) {
-//                index = i;
-//            }
-//            i++;
-//        }
-//        return index;
     }
 
     public E set(int index, E e) {
         if (index < 0 || index >= size) {
-            throw new IndexOutOfBoundsException();
+            return null;
         } else {
             Node<E> current = head;
             for (int i = 1; i <= index; i++) {
@@ -218,4 +214,14 @@ public class MyLinkedList<E> {
         }
         System.out.println(s);
     }
+
+    public E getMiddleValue() {
+        int mid = size / 2;
+        Node<E> current = head;
+        for (int i = 0; i < mid; i++) {
+            current = current.next;
+        }
+        return current.element;
+    }
+
 }
